@@ -33,7 +33,7 @@ public class Server {
 
     public Server() throws CertificateException, IOException {
         h2c();
-//        h2();
+        h2();
     }
 
 
@@ -41,8 +41,7 @@ public class Server {
     private void h2c() {
         HttpHandler httpHandler = RouterFunctions.toHttpHandler(
                 route(GET("/"), request -> ServerResponse.ok()
-                        .bodyValue("你好"
-                        ))
+                        .bodyValue("你好"))
         );
 
         ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(httpHandler);
