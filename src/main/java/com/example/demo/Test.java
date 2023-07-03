@@ -17,11 +17,8 @@ public class Test {
         ByteBuf byteBuf = Unpooled.buffer();
         encodeInteger(byteBuf,0x20,5,1337);
         byte[] bytes = new byte[byteBuf.readableBytes()];
-        // 打印编码后的字节数组
-        // 读取所有字节
+
         byteBuf.readBytes(bytes);
-// 打印字节数组R
-//        System.out.println(Arrays.toString(bytes));
         System.out.println("bytes.length = " + bytes.length);
         for (byte b : bytes) {
             System.out.print(String.format("%02X ", b));
@@ -50,14 +47,12 @@ public class Test {
     private static void getHuffmancode(String str) {
         HpackHuffmanEncoder encoder = new HpackHuffmanEncoder();
         ByteBuf byteBuf = Unpooled.buffer();
-        // 编码字符串
+
         encoder.encode(byteBuf,str);
         byte[] bytes = new byte[byteBuf.readableBytes()];
-        // 打印编码后的字节数组
-        // 读取所有字节
+
         byteBuf.readBytes(bytes);
-// 打印字节数组
-//        System.out.println(Arrays.toString(bytes));
+
         System.out.println("bytes.length = " + bytes.length);
         for (byte b : bytes) {
             System.out.print(String.format("%02X ", b));
